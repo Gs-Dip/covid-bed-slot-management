@@ -1,0 +1,63 @@
+{% extends 'baselogin.html' %}
+{% block title %} Trigger {% endblock %}
+{% block form %} 
+
+<h2>Trigger</h2>
+
+{% include 'messege.html' %}
+
+
+<div class="row">
+         
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="container mt-2">
+
+            <table class="table table-dark">
+                <thead>
+        
+                    <h3 class="text-center text-white bg-dark">Triggered Data</h3>
+                  <tr>
+                     
+                    <th scope="col">Hospital Code</th>
+                    
+                    <th scope="col">Normal Bed</th>
+                    <th scope="col">H.I.C.U Bed</th>
+                    <th scope="col">I.C.U Bed</th>
+                    <th scope="col">Ventilator Bed</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+        
+        
+                    
+                  <tr>
+                {% for data in query %}     
+                    <td>{{data.hcode}}</td>
+                    <td>{{data.normalbed}}</td>
+                    <td>{{data.hicubed}}</td>
+                    <td>{{data.icubed}}</td>
+                    <td>{{data.vbed}}</td>
+                    <td>{{data.querys}}</td>
+                    <td>{{data.date}}</td>
+        
+                  </tr>
+                {% endfor %}  
+                  
+                </tbody>
+              </table>
+        
+        </div>
+        
+
+    </div>
+    <div class="col-md-1"></div>
+ 
+
+
+
+
+
+{% endblock %}

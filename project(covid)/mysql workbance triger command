@@ -1,0 +1,9 @@
+CREATE TRIGGER `insert` AFTER INSERT ON `hospital_data` FOR EACH ROW INSERT INTO trig
+VALUES(null,NEW.hcode,NEW.normalbed,NEW.hicubed,NEW.icubed,NEW.vbed,'INSERTED',now())
+
+
+
+
+
+CREATE TRIGGER `delete` BEFORE DELETE ON `hospital_data` FOR EACH ROW INSERT INTO trig
+VALUES(null,OLD.hcode,OLD.normalbed,OLD.hicubed,OLD.icubed,OLD.vbed,'DELETED',now())

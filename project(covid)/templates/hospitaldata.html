@@ -1,0 +1,120 @@
+{% extends 'navbar.html' %}
+
+{% block title %}Add Hospital Information{% endblock title %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+ 
+
+<div class="container mt-4">
+    <div class="display-4 text-center text-info">Add Hospital Data</div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="card">
+                {% include 'messege.html' %}
+
+                <h4 class="text-center text-success">Covid Care Center</h4>
+
+                <div class="card-body bg-light">
+
+                    <form action="/hospitalinfo" method="POST">
+                    
+                        <div class="form-group">
+
+                            <input type="text" class="form-control mt-1" placeholder="Enter Hospital Code" name="hcode" value="" required>
+                            
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <input type="text" class="form-control mt-2" name="hname" value="" placeholder="Enter Hospital Name" required>
+                            
+                        </div>
+
+
+
+
+                        <div class="form-group">
+
+                            <input type="number" class="form-control mt-2" name="normalbed" placeholder="Normal Beds Available" value="" required>
+                            
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <input type="number" class="form-control mt-2" name="hicubed" value="" placeholder="H.I.C.U Bed Available" required>
+                            
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <input type="number" class="form-control mt-2" name="icubed" placeholder="I.C.U Bed Available" value="" required>
+                            
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <input type="number" class="form-control mt-2" name="ventbed" placeholder="ventilators Bed Available" value="" required>
+                            
+                        </div>
+                        
+                        <br>
+
+                        <button class="btn btn-info" type="submit">Add</button>
+                        
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-8">
+
+            <div class="card mb-3">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="https://source.unsplash.com/600x1000/?covid,hospital" class="img-fluid rounded-start" alt="...">    <!-- "https://source.unsplash.com/600x1000/?covid,hospital" aita hocche unsplash ar api jar maddhome protibar page reload dile notun photo show korbe  covid,hospital ar jaigai je nam dibo shei picture gulo ee show korbe akhane -->
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body bg-dark">
+                      <h5 class="card-title text-center text-light">Hospital Data</h5>
+                        
+                      <div class="card" style="width: 28rem;">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Hospital Code: <b>{{postsdata.hcode}}</b> </li>
+                          <li class="list-group-item">Hospital Name: <b>{{postsdata.hname}}</b> </li>
+                          <li class="list-group-item">Normal Beds Available: <b>{{postsdata.normalbed}}</b> </li>
+                          <li class="list-group-item">H.I.C.U Beds Available: <b>{{postsdata.hicubed}}</b> </li>
+                          <li class="list-group-item">I.C.U Beds Available: <b>{{postsdata.icubed}}</b> </li>
+                          <li class="list-group-item">ventilators Beds Available: <b>{{postsdata.vbed}}</b> </li>
+                          <li class="list-group-item">Edit:<b><a href="/hedit/{{postsdata.id}}"><i class="fa-solid fa-user-pen p-2"></i></a></b></li>
+                          <li class="list-group-item">Delete:<b><a href="/hdelete/{{postsdata.id}}"><i class="fa-solid fa-trash-can p-2"></i></a></b></li>
+
+                        </ul>
+                         
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+        </div>
+    </div>
+
+
+</div>  
+
+{% endblock body %}
